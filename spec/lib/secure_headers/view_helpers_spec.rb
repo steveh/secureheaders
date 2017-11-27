@@ -39,11 +39,11 @@ class Message < ERB
   }
 </style>
 
-<%= nonced_javascript_include_tag "include.js" %>
+<%= nonced_javascript_include_tag "include.js", host: "example.com" %>
 
-<%= nonced_javascript_pack_tag "pack.js" %>
+<%= nonced_javascript_pack_tag "pack.js", host: "example.com" %>
 
-<%= nonced_stylesheet_link_tag "link.css" %>
+<%= nonced_stylesheet_link_tag "link.css", host: "example.com" %>
 
 TEMPLATE
   end

@@ -18,8 +18,8 @@ module SecureHeaders
     # Instructs secure_headers to append a nonce to style-src directive.
     #
     # Returns an html-safe link tag with the nonce attribute.
-    def nonced_stylesheet_link_tag(*args, &block)
-      stylesheet_link_tag(*args, nonce: content_security_policy_nonce(:style), &block)
+    def nonced_stylesheet_link_tag(*sources, **options, &block)
+      stylesheet_link_tag(*sources, **options, nonce: content_security_policy_nonce(:style), &block)
     end
 
     # Public: create a script tag using the content security policy nonce.
@@ -34,16 +34,16 @@ module SecureHeaders
     # Instructs secure_headers to append a nonce to script-src directive.
     #
     # Returns an html-safe script tag with the nonce attribute.
-    def nonced_javascript_include_tag(*args, &block)
-      javascript_include_tag(*args, nonce: content_security_policy_nonce(:script), &block)
+    def nonced_javascript_include_tag(*sources, **options, &block)
+      javascript_include_tag(*sources, **options, nonce: content_security_policy_nonce(:script), &block)
     end
 
     # Public: create a script Webpacker pack tag using the content security policy nonce.
     # Instructs secure_headers to append a nonce to script-src directive.
     #
     # Returns an html-safe script tag with the nonce attribute.
-    def nonced_javascript_pack_tag(*args, &block)
-      javascript_pack_tag(*args, nonce: content_security_policy_nonce(:script), &block)
+    def nonced_javascript_pack_tag(*sources, **options, &block)
+      javascript_pack_tag(*sources, **options, nonce: content_security_policy_nonce(:script), &block)
     end
 
     # Public: use the content security policy nonce for this request directly.
